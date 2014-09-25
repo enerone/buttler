@@ -100,7 +100,25 @@ class UrlController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$url = Url::where('user_id', Auth::user()->id)->find($id);
+ 
+	    if ( Request::get('url') )
+	    {
+	        $url->url = Request::get('url');
+	    }
+	 
+	    if ( Request::get('description') )
+	    {
+	        $url->description = Request::get('description');
+	    }
+	 
+	    $url->save();
+	 
+	    return Response::json(array(
+	        'error' => false,
+	        'message' => 'url updated'),
+	        200
+	    );
 	}
 
 

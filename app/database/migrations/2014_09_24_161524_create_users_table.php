@@ -17,6 +17,11 @@ class CreateUsersTable extends Migration {
 			$table->increments('id');
 			$table->string('username')->unique();
 			$table->string('password');
+			$table->string('email')->unique();
+			$table->date('fecnac');
+			$table->enum('estado', array('activo','inactivo'));
+			$table->integer('gmt');
+			$table->string('avatar');
 			$table->timestamps();
 
 		});

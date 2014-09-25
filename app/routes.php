@@ -11,6 +11,8 @@
 |
 */
 
+Route::controller('users', 'UsersController');
+
 Route::group(array('prefix'=>'api/v1', 'before'=>'auth.basic'), function(){
 	Route::resource('url', 'UrlController');
 });
